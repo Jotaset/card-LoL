@@ -1,0 +1,58 @@
+body {
+  background-image: url(/assets/image.png);
+  background-size: cover;
+  font-family: poppinsbold;
+}
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.card {
+  text-align: center;
+  color: white;
+  justify-content: center;
+  height: 70%;
+  width: 30%;
+  background-color: #5A6467aa;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+
+.champImg {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+input {
+  height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  border: solid 2px transparent;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  padding: 20px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.seta {
+  width: 70px;
+}
+
+.btn-prev {
+  transform: rotate(180deg);
+}
