@@ -24,6 +24,7 @@ main {
   align-items: center;
   justify-content: space-between;
   padding-bottom: 15px;
+  font-size: 1.8rem;
 }
 
 .champImg {
