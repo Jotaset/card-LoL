@@ -4,7 +4,6 @@ const champName = document.querySelector(".champName");
 const champResume = document.querySelector(".champResume");
 const searchInput = document.getElementById("search");
 
-
 // URL da API Data Dragon
 const version = "13.24.1";
 const language = "pt_BR";
@@ -12,6 +11,14 @@ const apiUrl = `https://ddragon.leagueoflegends.com/cdn/${version}/data/${langua
 
 // Dados dos campeões
 let championsData = {};
+
+// Alias para nomes específicos
+const aliases = {
+    "miss fortune": "MissFortune", // Com espaço
+    "missfortune": "MissFortune", // Sem espaço
+    "mf": "MissFortune",          // Apelido comum
+    // Adicione mais aliases conforme necessário
+};
 
 // Função para carregar os dados dos campeões
 async function loadChampions() {
@@ -28,7 +35,23 @@ async function loadChampions() {
 
 // Função para exibir os dados de um campeão específico
 function displayChampion(championName) {
-    const champion = championsData[championName];
+    // Normaliza a entrada do usuário
+    const normalizedSearch = championName.trim().toLowerCase();
+
+    // Verifica se o nome buscado tem um alias
+    const championKey = aliases[normalizedSearch] || normalizedSearch;
+
+    // Busca o campeão nos dados
+    const champion = Object.values(championsData).find(champ => 
+        champ.id.toLowerCase() === championKey.toLowerCase()
+    );
+
+    if (!champion) {
+        champName.textContent = "Campeão não encontrado";
+        champResume.textContent = "Tente buscar outro nome.";
+        champImage.src = "";
+        return;
+    }
 
     // Atualiza os elementos do DOM com os dados do campeão
     champName.textContent = champion.name;
@@ -42,10 +65,9 @@ function displayChampion(championName) {
 searchInput.addEventListener("input", (e) => {
     const searchValue = e.target.value.trim();
     if (searchValue) {
-        displayChampion(searchValue.charAt(0).toUpperCase() + searchValue.slice(1).toLowerCase());
+        displayChampion(searchValue);
     }
 });
-
 
 // Carregar os dados ao inicializar
 loadChampions();
