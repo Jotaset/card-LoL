@@ -17,6 +17,10 @@ const aliases = {
     "miss fortune": "MissFortune", // Com espaço
     "missfortune": "MissFortune", // Sem espaço
     "mf": "MissFortune",          // Apelido comum
+    "lilia": "Lillia", 
+    "fidle": "Fiddlesticks",
+    "evelin": "Evelynn",
+    
     // Adicione mais aliases conforme necessário
 };
 
@@ -45,13 +49,6 @@ function displayChampion(championName) {
     const champion = Object.values(championsData).find(champ => 
         champ.id.toLowerCase() === championKey.toLowerCase()
     );
-
-    if (!champion) {
-        champName.textContent = "Campeão não encontrado";
-        champResume.textContent = "Tente buscar outro nome.";
-        champImage.src = "";
-        return;
-    }
 
     // Atualiza os elementos do DOM com os dados do campeão
     champName.textContent = champion.name;
