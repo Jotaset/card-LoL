@@ -5,7 +5,7 @@ const champResume = document.querySelector(".champResume");
 const searchInput = document.getElementById("search");
 
 // URL da API Data Dragon
-const version = "13.24.1";
+const version = "14.24.1";
 const language = "pt_BR";
 const apiUrl = `https://ddragon.leagueoflegends.com/cdn/${version}/data/${language}/champion.json`;
 
@@ -20,7 +20,7 @@ const aliases = {
     "lilia": "Lillia", 
     "fidle": "Fiddlesticks",
     "evelin": "Evelynn",
-    
+    "smolder": "Smolder"
     // Adicione mais aliases conforme necessário
 };
 
